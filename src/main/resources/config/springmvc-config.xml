@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:annotation-config/>
+
+    <!-- springmvc扫包 @Controller, @Service ... -->
+    <!-- use-default-filters="false" 加上这个为了让springmvc扫完controller层就停止扫描 -->
+    <context:component-scan base-package="com.ck.controller"
+                            use-default-filters="false">
+
+        <context:include-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <mvc:resources mapping="/static/**" location="/static/"></mvc:resources>
+
+    <!-- 注册转化器 -->
+    <mvc:annotation-driven/>
+    <!-- 处理静态资源的 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 前缀和后缀 -->
+        <property name="prefix" value="/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--    文件上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="maxUploadSize" value="5242440"></property>
+    </bean>
+
+    <!--开启shiro注解支持-->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <!--    aop代理-->
+    <aop:config proxy-target-class="true"></aop:config>
+    <!--<mvc:interceptors>
+        &lt;!&ndash; 登录权限拦截器 &ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/welcomeController/*"/>
+            <mvc:exclude-mapping path="/loginController/login.do"/>
+            <mvc:exclude-mapping path="/loginController/check.do"/>
+            <mvc:exclude-mapping path="/loginController/exit.do"/>
+            <mvc:exclude-mapping path="/registController/*"/>
+            <bean class="com.interceptor.LoginInterceptor">
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+
+</beans>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射 -->
+<mapper namespace="com.ck.dao.RoleDao">
+    <resultMap id="role" type="Role">
+        <id property="roleId" column="role_id"></id>
+        <result property="roleName" column="role_name"></result>
+        <collection property="permissions" ofType="Permission">
+            <id property="permissionId" column="permission_id"></id>
+            <result property="permissionDesc" column="permission_desc"></result>
+            <result property="permissionName" column="permission_name"></result>
+            <result property="permissionUrl" column="permission_url"></result>
+            <result property="permissionIcon" column="permission_icon"></result>
+            <result property="permissionPid" column="permission_pid"></result>
+        </collection>
+    </resultMap>
+
+    <select id="queryRoleAndPermissionByRoleName" resultType="com.ck.entity.Role" resultMap="role">
+        SELECT * FROM
+        role r,permission p,role_permission m
+        where
+        r.role_id = m.role_id
+        and
+        p.permission_id = m.permission_id
+        and
+        r.role_name = #{roleName};
+    </select>
+</mapper>
