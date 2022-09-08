@@ -1,0 +1,20 @@
+2022-09-08 18:28:19.140 INFO  [restartedMain]com.ck.spring_boot_try.SpringBootTryApplication.logStarting:55 -Starting SpringBootTryApplication on DESKTOP-unit with PID 189672 (D:\project\Java\CKHOMEWORK\SpringbootAndRepositoryFirstTry\target\classes started by sky in D:\project\Java\CKHOMEWORK\SpringbootAndRepositoryFirstTry)
+2022-09-08 18:28:19.143 INFO  [restartedMain]com.ck.spring_boot_try.SpringBootTryApplication.logStartupProfileInfo:655 -The following profiles are active: dev
+2022-09-08 18:28:19.215 INFO  [restartedMain]o.s.b.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:225 -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-08 18:28:19.216 INFO  [restartedMain]o.s.b.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:225 -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-08 18:28:20.024 INFO  [restartedMain]o.s.boot.web.embedded.tomcat.TomcatWebServer.initialize:108 -Tomcat initialized with port(s): 8080 (http)
+2022-09-08 18:28:20.030 INFO  [restartedMain]org.apache.coyote.http11.Http11NioProtocol.log:173 -Initializing ProtocolHandler ["http-nio-8080"]
+2022-09-08 18:28:20.031 INFO  [restartedMain]org.apache.catalina.core.StandardService.log:173 -Starting service [Tomcat]
+2022-09-08 18:28:20.031 INFO  [restartedMain]org.apache.catalina.core.StandardEngine.log:173 -Starting Servlet engine: [Apache Tomcat/9.0.41]
+2022-09-08 18:28:20.033 INFO  [restartedMain]org.apache.catalina.core.AprLifecycleListener.log:173 -Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-09-08 18:28:20.033 INFO  [restartedMain]org.apache.catalina.core.AprLifecycleListener.log:173 -APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-09-08 18:28:20.033 INFO  [restartedMain]org.apache.catalina.core.AprLifecycleListener.log:173 -APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-09-08 18:28:20.036 INFO  [restartedMain]org.apache.catalina.core.AprLifecycleListener.log:173 -OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-09-08 18:28:20.111 INFO  [restartedMain]o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/].log:173 -Initializing Spring embedded WebApplicationContext
+2022-09-08 18:28:20.111 INFO  [restartedMain]o.s.b.w.s.context.ServletWebServerApplicationContext.prepareWebApplicationContext:285 -Root WebApplicationContext: initialization completed in 894 ms
+2022-09-08 18:28:20.253 INFO  [restartedMain]o.s.scheduling.concurrent.ThreadPoolTaskExecutor.initialize:181 -Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-08 18:28:20.395 INFO  [restartedMain]o.s.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer:58 -LiveReload server is running on port 35729
+2022-09-08 18:28:20.407 INFO  [restartedMain]org.apache.coyote.http11.Http11NioProtocol.log:173 -Starting ProtocolHandler ["http-nio-8080"]
+2022-09-08 18:28:20.423 INFO  [restartedMain]o.s.boot.web.embedded.tomcat.TomcatWebServer.start:220 -Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-08 18:28:20.443 INFO  [restartedMain]com.ck.spring_boot_try.SpringBootTryApplication.logStarted:61 -Started SpringBootTryApplication in 1.915 seconds (JVM running for 3.01)
+2022-09-08 20:52:26.965 INFO  [SpringContextShutdownHook]o.s.scheduling.concurrent.ThreadPoolTaskExecutor.shutdown:218 -Shutting down ExecutorService 'applicationTaskExecutor'
