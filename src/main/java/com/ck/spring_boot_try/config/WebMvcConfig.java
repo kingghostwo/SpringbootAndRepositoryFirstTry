@@ -8,6 +8,10 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @AutoConfigureAfter({WebMvcAutoConfiguration.class})
@@ -19,7 +23,7 @@ public class WebMvcConfig {
     @Bean
     public Connector connector(){
         Connector connector = new Connector();
-        connector.setPort(8080);
+        connector.setPort(httpPort);
         connector.setScheme("http");
         return connector;
     }
