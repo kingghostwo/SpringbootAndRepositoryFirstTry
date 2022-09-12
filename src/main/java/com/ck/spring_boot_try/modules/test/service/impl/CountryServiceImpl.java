@@ -7,9 +7,7 @@ import com.ck.spring_boot_try.modules.test.mapper.CountryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 /**
  *
@@ -23,10 +21,6 @@ public class CountryServiceImpl extends ServiceImpl<CountryMapper, Country>
 
     @Override
     public List<Country> getCountryByCountryId(int countryId) {
-//        List<Country> a = countryMapper.getCountryByCountryId(countryId);
-//        for (int i = 0; i < 1; i++) {
-//            System.out.println(a);
-//        }
         return countryMapper.getCountryByCountryId(countryId);
     }
 
@@ -34,6 +28,7 @@ public class CountryServiceImpl extends ServiceImpl<CountryMapper, Country>
     public Country getCountryByCountryName(String CountryName) {
         return countryMapper.getCountryByCountryName(CountryName);
     }
+
 }
 
 

@@ -1,8 +1,6 @@
 package com.ck.spring_boot_try.modules.test.controller;
 
-import com.ck.spring_boot_try.modules.test.entity.City;
 import com.ck.spring_boot_try.modules.test.entity.Country;
-import com.ck.spring_boot_try.modules.test.service.CityService;
 import com.ck.spring_boot_try.modules.test.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

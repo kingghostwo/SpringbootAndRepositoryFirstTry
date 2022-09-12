@@ -13,6 +13,7 @@ import java.util.List;
 @Mapper
 public interface CityMapper extends BaseMapper<City> {
 
+    @Select("select * from m_city where country_id = #{countryId}")
     List<City> getCitiesByCountryId(int countryId);
 
 }

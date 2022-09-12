@@ -16,8 +16,8 @@ public interface CountryMapper extends BaseMapper<Country> {
 
     @Select("select * from m_country where country_id = #{countryId}")
     @Results(id = "countryResults", value= {
-            @Result(column = " country_id", property = "countryId"),
-            @Result(column = " country_id", property = "cities",
+            @Result(column = "country_id", property = "countryId", id = true),
+            @Result(column = "country_id", property = "cities",
                     javaType = List.class,
                     many = @Many(select = "com.ck.spring_boot_try.modules.test.mapper.CityMapper.getCitiesByCountryId"))
     })
@@ -26,6 +26,7 @@ public interface CountryMapper extends BaseMapper<Country> {
     @Select("select * from m_country where country_name = #{countryName}")
     @ResultMap(value = "countryResults")
     Country getCountryByCountryName(String countryName);
+
 }
 
 

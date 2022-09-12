@@ -5,14 +5,14 @@
 <mapper namespace="com.ck.spring_boot_try.modules.test.mapper.CityMapper">
 
     <resultMap id="BaseResultMap" type="com.ck.spring_boot_try.modules.test.entity.City">
-            <id property="cityId" column="city_id" jdbcType="INTEGER"/>
-            <result property="cityName" column="city_name" jdbcType="VARCHAR"/>
-            <result property="localCityName" column="local_city_name" jdbcType="VARCHAR"/>
-            <result property="countryId" column="country_id" jdbcType="INTEGER"/>
-            <result property="district" column="district" jdbcType="VARCHAR"/>
-            <result property="population" column="population" jdbcType="INTEGER"/>
-            <result property="dateModified" column="date_modified" jdbcType="TIMESTAMP"/>
-            <result property="dateCreated" column="date_created" jdbcType="TIMESTAMP"/>
+        <id property="cityId" column="city_id" jdbcType="INTEGER"/>
+        <result property="cityName" column="city_name" jdbcType="VARCHAR"/>
+        <result property="localCityName" column="local_city_name" jdbcType="VARCHAR"/>
+        <result property="countryId" column="country_id" jdbcType="INTEGER"/>
+        <result property="district" column="district" jdbcType="VARCHAR"/>
+        <result property="population" column="population" jdbcType="INTEGER"/>
+        <result property="dateModified" column="date_modified" jdbcType="TIMESTAMP"/>
+        <result property="dateCreated" column="date_created" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -20,7 +20,4 @@
         country_id,district,population,
         date_modified,date_created
     </sql>
-    <select id="getCitiesByCountryId" resultType="com.ck.spring_boot_try.modules.test.entity.City" parameterType="int">
-        select * from m_city where country_id = #{countryId}
-    </select>
 </mapper>

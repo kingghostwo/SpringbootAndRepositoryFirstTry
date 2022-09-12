@@ -3,6 +3,7 @@ package com.ck.spring_boot_try.modules.test.service;
 import com.ck.spring_boot_try.modules.test.entity.City;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ck.spring_boot_try.modules.test.entity.Country;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,5 +15,7 @@ import java.util.List;
 public interface CityService extends IService<City> {
 
     List<City> getCitiesByCountryId (int countryId);
+
+    PageInfo<City> getCitiesByPage(int currentPage, int pageSize );
 
 }

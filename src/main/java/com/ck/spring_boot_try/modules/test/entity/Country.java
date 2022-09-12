@@ -2,6 +2,8 @@ package com.ck.spring_boot_try.modules.test.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -10,6 +12,9 @@ import lombok.Data;
  */
 @Data
 public class Country implements Serializable {
+
+    private List<City> cities;
+
     /**
      *
      */
