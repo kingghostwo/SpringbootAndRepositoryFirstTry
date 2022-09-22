@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,12 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/test")
 public class TestController {
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
     @Value("${com.hqyj.name}")
     private String name;
     @Autowired
     private ApplicationTest applicationTest;
-    private final static Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
     /**
      * 127.0.0.1:8080/test/helloWorld ---- get
@@ -45,5 +46,10 @@ public class TestController {
         LOGGER.warn("warn");
         LOGGER.error("error");
         return "log test";
+    }
+
+    @RequestMapping("index")
+    public String testIndex(){
+        return "index";
     }
 }
