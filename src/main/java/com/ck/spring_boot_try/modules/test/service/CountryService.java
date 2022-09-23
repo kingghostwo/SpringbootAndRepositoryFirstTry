@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public interface CountryService extends IService<Country> {
 
-    List<Country> getCountryByCountryId(int countryId);
+    Country getCountryByCountryId(int countryId);
 
     Country getCountryByCountryName(String CountryName);
 

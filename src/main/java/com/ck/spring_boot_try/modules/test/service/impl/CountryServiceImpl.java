@@ -20,7 +20,7 @@ public class CountryServiceImpl extends ServiceImpl<CountryMapper, Country>
     private CountryMapper countryMapper;
 
     @Override
-    public List<Country> getCountryByCountryId(int countryId) {
+    public Country getCountryByCountryId(int countryId) {
         return countryMapper.getCountryByCountryId(countryId);
     }
 

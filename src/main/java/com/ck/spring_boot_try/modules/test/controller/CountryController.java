@@ -23,7 +23,7 @@ public class CountryController {
      * @return
      */
     @RequestMapping("/country/{countryId}")
-    public List<Country> getCountryByCountryById(@PathVariable int countryId){
+    public Country getCountryByCountryById(@PathVariable int countryId){
         return countryService.getCountryByCountryId(countryId);
     }
 
