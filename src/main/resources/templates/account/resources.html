@@ -1,3 +1,6 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <!-- DataTables -->
 <link th:href="${'/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'}" rel="stylesheet" />
 <link th:href="${'/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'}" rel="stylesheet" />
@@ -27,7 +30,7 @@
 					<!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
 					<div class="btn-group col-md-12 operation" style="margin-bottom: 5px;">
 						<span class="input-group-btn col-md-12">
-							<button id="btnAdd" type="button" class="btn btn-info" 
+							<button id="btnAdd" type="button" class="btn btn-info"
 								data-toggle="modal" data-target="#resourceAddModal">Add</button>
 						</span>
 					</div>
@@ -53,7 +56,7 @@
 		<!-- /.col -->
 	</div>
 	<!-- /.row -->
-	
+
 	<div th:replace="account/resourceAdd :: resourceAdd"></div>
 	<div th:replace="account/resourceEdit :: resourceEdit"></div>
 </section>
@@ -85,7 +88,7 @@ function initTable(currentPage, pageSize){
 		"serverSide": true, //开启后端分页
 		"pagingType": "full_numbers", //分页样式的类型simple/simple_numbers/full/full_numbers
 		"pageLength": pageSize, //定义初始的页长
-		"processing": true, 
+		"processing": true,
 		"destroy": true, //允许销毁替换，在表格重新查询时，可以自动销毁以前的data
 		'lengthChange': true, //控制是否能够调整每页的条数
 		'searching': true,
@@ -98,7 +101,7 @@ function initTable(currentPage, pageSize){
 			var sort = data.order[0].dir;
 			var orderBy = data.columns[columIndex].name;
 			pageSize = data.length == undefined ? pageSize : data.length;
-			
+
 			var searchVo = {};
 			searchVo.currentPage = (data.start / pageSize) + 1;
 			searchVo.pageSize = pageSize;
@@ -148,8 +151,8 @@ function initTable(currentPage, pageSize){
 			});
 		},
 		"columns": [ //定义行数据字段
-			{data: 'resourceId', name: "resource_id", sortable: true}, 
-			{data: 'resourceName', name: "resource_name", sortable: true}, 
+			{data: 'resourceId', name: "resource_id", sortable: true},
+			{data: 'resourceName', name: "resource_name", sortable: true},
 			{data: 'permission', name: "permission", sortable: true},
 			{data: 'operate', width: '80px', sortable: false}
 		]
@@ -162,8 +165,8 @@ function TData(resourceId, resourceName, permission) {
 	this.resourceName = resourceName;
 	this.permission = permission;
 	this.operate = function () {
-		return "<a href='#' class='btn_editcolor' data-toggle='modal' " + 
-			"data-target='#resourceEditModal' onclick='initEditModal(\"" + resourceId + "\")'>编辑</a>&nbsp;" + 
+		return "<a href='#' class='btn_editcolor' data-toggle='modal' " +
+			"data-target='#resourceEditModal' onclick='initEditModal(\"" + resourceId + "\")'>编辑</a>&nbsp;" +
 			"<a href='javascript:void(0);' onclick='deleteResource(\"" + resourceId + "\")' class='btn_editcolor'>删除</a>";
 	}
 }
@@ -171,7 +174,7 @@ function TData(resourceId, resourceName, permission) {
 //初始化添加页面
 function initAddModal() {
 	initRoles("rolesForAddPage", "roleForAddPage");
-	
+
 	$("#resourceNameForAddPage").val("");
 	$("#permissionUriForAddPage").val("");
 }
@@ -190,7 +193,7 @@ function insertResource() {
 		}
 	});
 	resource.roles = roles;
-	
+
 	$.ajax({
 		url : "/api/resource",
 		type : "post",
@@ -212,7 +215,7 @@ function insertResource() {
 // 初始化编辑页面
 function initEditModal(resourceId) {
 	initRoles("rolesForEditPage", "roleForEditPage");
-	
+
 	$.ajax({
 		url : "/api/resource/" + resourceId,
 		type : "get",

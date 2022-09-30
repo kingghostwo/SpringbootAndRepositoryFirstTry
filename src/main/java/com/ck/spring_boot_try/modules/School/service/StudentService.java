@@ -1,8 +1,8 @@
 package com.ck.spring_boot_try.modules.School.service;
 
 import com.ck.spring_boot_try.modules.School.entity.Student;
-import com.ck.spring_boot_try.utils.Result;
-import com.ck.spring_boot_try.utils.SearchVo;
+import com.ck.spring_boot_try.modules.common.vo.Result;
+import com.ck.spring_boot_try.modules.common.vo.SearchVo;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 

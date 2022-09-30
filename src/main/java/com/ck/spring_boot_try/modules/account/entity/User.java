@@ -23,4 +23,7 @@ public class User {
 
     @Transient
     private List<Role> roles;
+
+    @Transient
+    private boolean rememberMe;
 }

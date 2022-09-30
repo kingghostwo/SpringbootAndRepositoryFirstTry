@@ -1,4 +1,4 @@
-package com.ck.spring_boot_try.utils;
+package com.ck.spring_boot_try.modules.common.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

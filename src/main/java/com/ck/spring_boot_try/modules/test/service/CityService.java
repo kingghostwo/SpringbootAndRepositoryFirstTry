@@ -2,9 +2,8 @@ package com.ck.spring_boot_try.modules.test.service;
 
 import com.ck.spring_boot_try.modules.test.entity.City;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ck.spring_boot_try.modules.test.entity.Country;
-import com.ck.spring_boot_try.utils.Result;
-import com.ck.spring_boot_try.utils.SearchVo;
+import com.ck.spring_boot_try.modules.common.vo.Result;
+import com.ck.spring_boot_try.modules.common.vo.SearchVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 

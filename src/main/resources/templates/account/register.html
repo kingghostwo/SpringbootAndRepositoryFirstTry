@@ -52,7 +52,7 @@ jQuery(function($) {
 	$("[name='registerBtn']").bind("click", function(){
 		register();
 	})
-	
+
 });
 
 function register() {
@@ -60,11 +60,11 @@ function register() {
 		layer.msg("Please check the terms", {icon: 0});
 		return;
 	}
-	
+
 	var user = {};
 	user.userName = $("[name='userName']").val();
 	user.password = $("[name='password']").val();
-	
+
 	$.ajax({
 		url : "/api/register",
 		type : "post",
@@ -72,6 +72,7 @@ function register() {
 		data : JSON.stringify(user),
 		success : function (data) {
 			if (data.status == 200) {
+				alert("register success")
 				location.href = "/common/dashboard";
 			} else {
 				layer.msg(data.message, {icon: 0});

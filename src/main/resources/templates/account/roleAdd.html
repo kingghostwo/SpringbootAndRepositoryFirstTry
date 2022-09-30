@@ -1,3 +1,6 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <!-- 模态框（Modal） -->
 <div th:fragment="roleAdd" class="modal fade" id="roleAddModal" tabindex="-1"
 	role="dialog" aria-labelledby="roleAddLabel" aria-hidden="true">
@@ -14,7 +17,7 @@
 					<div class="form-group row">
 						<label class="control-label col-md-3">Role Name</label>
 						<div class="col-md-8">
-							<input id="roleNameForAddPage" name="roleName" class="form-control" 
+							<input id="roleNameForAddPage" name="roleName" class="form-control"
 								type="text" placeholder="Enter role name">
 						</div>
 					</div>
@@ -25,7 +28,7 @@
 				<a class="btn btn-secondary" href="#" data-dismiss="modal">
 					<i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel
 				</a>
-				<button id="roleAddBtn" data-dismiss="modal" 
+				<button id="roleAddBtn" data-dismiss="modal"
 					class="btn btn-primary" type="button">
 					<i class="fa fa-fw fa-lg fa-check-circle"></i>Submit
 				</button>

@@ -2,9 +2,8 @@ package com.ck.spring_boot_try.modules.test.mapper;
 
 import com.ck.spring_boot_try.modules.test.entity.City;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ck.spring_boot_try.utils.SearchVo;
+import com.ck.spring_boot_try.modules.common.vo.SearchVo;
 import org.apache.ibatis.annotations.*;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 

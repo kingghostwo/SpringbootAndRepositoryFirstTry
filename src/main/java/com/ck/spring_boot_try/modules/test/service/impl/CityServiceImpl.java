@@ -1,12 +1,11 @@
 package com.ck.spring_boot_try.modules.test.service.impl;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ck.spring_boot_try.modules.test.entity.City;
 import com.ck.spring_boot_try.modules.test.service.CityService;
 import com.ck.spring_boot_try.modules.test.mapper.CityMapper;
-import com.ck.spring_boot_try.utils.Result;
-import com.ck.spring_boot_try.utils.SearchVo;
+import com.ck.spring_boot_try.modules.common.vo.Result;
+import com.ck.spring_boot_try.modules.common.vo.SearchVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

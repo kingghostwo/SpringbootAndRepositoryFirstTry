@@ -2,7 +2,7 @@ package com.ck.spring_boot_try.modules.School.controller;
 
 import com.ck.spring_boot_try.modules.School.entity.Card;
 import com.ck.spring_boot_try.modules.School.service.CardService;
-import com.ck.spring_boot_try.utils.Result;
+import com.ck.spring_boot_try.modules.common.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

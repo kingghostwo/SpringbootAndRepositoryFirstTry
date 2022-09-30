@@ -1,7 +1,7 @@
 package com.ck.spring_boot_try.modules.School.service;
 
 import com.ck.spring_boot_try.modules.School.entity.Card;
-import com.ck.spring_boot_try.utils.Result;
+import com.ck.spring_boot_try.modules.common.vo.Result;
 
 import java.util.List;
 

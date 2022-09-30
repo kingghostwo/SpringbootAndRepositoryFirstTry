@@ -1,3 +1,6 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <!-- DataTables -->
 <link th:href="${'/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'}" rel="stylesheet" />
 <link th:href="${'/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'}" rel="stylesheet" />
@@ -27,7 +30,7 @@
 					<!-- <h3 class="card-title">DataTable with minimal features & hover style</h3> -->
 					<div class="btn-group col-md-12 operation" style="margin-bottom: 5px;">
 						<span class="input-group-btn col-md-12">
-							<button id="btnAdd" type="button" class="btn btn-info" 
+							<button id="btnAdd" type="button" class="btn btn-info"
 								data-toggle="modal" data-target="#roleAddModal">Add</button>
 						</span>
 					</div>
@@ -52,7 +55,7 @@
 		<!-- /.col -->
 	</div>
 	<!-- /.row -->
-	
+
 	<div th:replace="account/roleAdd :: roleAdd"></div>
 	<div th:replace="account/roleEdit :: roleEdit"></div>
 </section>
@@ -84,7 +87,7 @@ function initTable(currentPage, pageSize){
 		"serverSide": true, //开启后端分页
 		"pagingType": "full_numbers", //分页样式的类型simple/simple_numbers/full/full_numbers
 		"pageLength": pageSize, //定义初始的页长
-		"processing": true, 
+		"processing": true,
 		"destroy": true, //允许销毁替换，在表格重新查询时，可以自动销毁以前的data
 		'lengthChange': true, //控制是否能够调整每页的条数
 		'searching': true,
@@ -97,7 +100,7 @@ function initTable(currentPage, pageSize){
 			var sort = data.order[0].dir;
 			var orderBy = data.columns[columIndex].name;
 			pageSize = data.length == undefined ? pageSize : data.length;
-			
+
 			var searchVo = {};
 			searchVo.currentPage = (data.start / pageSize) + 1;
 			searchVo.pageSize = pageSize;
@@ -147,8 +150,8 @@ function initTable(currentPage, pageSize){
 			});
 		},
 		"columns": [ //定义行数据字段
-			{data: 'roleId', name: "role_id", sortable: true}, 
-			{data: 'roleName', name: "role_name", sortable: true}, 
+			{data: 'roleId', name: "role_id", sortable: true},
+			{data: 'roleName', name: "role_name", sortable: true},
 			{data: 'operate', width: '80px', sortable: false}
 		]
 	});
@@ -159,8 +162,8 @@ function TData(roleId, roleName) {
 	this.roleId = roleId;
 	this.roleName = roleName;
 	this.operate = function () {
-		return "<a href='#' class='btn_editcolor' data-toggle='modal' " + 
-			"data-target='#roleEditModal' onclick='initEditModal(\"" + roleId + "\")'>编辑</a>&nbsp;" + 
+		return "<a href='#' class='btn_editcolor' data-toggle='modal' " +
+			"data-target='#roleEditModal' onclick='initEditModal(\"" + roleId + "\")'>编辑</a>&nbsp;" +
 			"<a href='javascript:void(0);' onclick='deleteRole(\"" + roleId + "\")' class='btn_editcolor'>删除</a>";
 	}
 }
@@ -174,7 +177,7 @@ function initAddModal() {
 function insertRole() {
 	var role = {};
 	role.roleName = $("#roleNameForAddPage").val();
-	
+
 	$.ajax({
 		url : "/api/role",
 		type : "post",
@@ -196,7 +199,7 @@ function insertRole() {
 // 初始化编辑页面
 function initEditModal(roleId) {
 	initRoles("roleForEditPage");
-	
+
 	$.ajax({
 		url : "/api/role/" + roleId,
 		type : "get",

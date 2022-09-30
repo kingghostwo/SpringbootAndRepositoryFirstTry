@@ -5,14 +5,19 @@ import com.ck.spring_boot_try.modules.account.entity.User;
 import com.ck.spring_boot_try.modules.account.mapper.UserMapper;
 import com.ck.spring_boot_try.modules.account.mapper.UserRoleMapper;
 import com.ck.spring_boot_try.modules.account.service.UserService;
+import com.ck.spring_boot_try.modules.common.vo.SearchVo;
 import com.ck.spring_boot_try.utils.MD5;
-import com.ck.spring_boot_try.utils.Result;
+import com.ck.spring_boot_try.modules.common.vo.Result;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -48,8 +53,21 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
-    @Override
-    public Result<User> getUserByUserName(User user) {
-        return null;
+
+    public Result<User> login(User user) {
+        User userTemp = userMapper.getUserByUserName(user.getUserName());
+        if (userTemp == null || !userTemp.getPassword().equals(MD5.getMD5(user.getUserName(), user.getPassword()))) {
+            return new Result<>(Result.ResultStatus.FAILED.status, "userName or password error");
+        }else {
+            return new Result<>(Result.ResultStatus.SUCCESS.status, "");
+        }
+    }
+
+    public PageInfo<User> getUsersBySearchVo(SearchVo searchVo) {
+        searchVo.initSearchVo();
+        PageHelper.startPage(searchVo.getCurrentPage(), searchVo.getPageSize());
+        return new PageInfo(
+                Optional.ofNullable(userMapper.getUsersBySearchVo(searchVo))
+                        .orElse(Collections.emptyList()));
     }
 }
