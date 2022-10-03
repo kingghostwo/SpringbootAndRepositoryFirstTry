@@ -17,7 +17,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Result<Student> editStudent(Student student) {
-        return new Result<Student>(Result.ResultStatus.SUCCESS.status,"edit success",student);
+        return new Result<Student>(Result.ResultStatus.SUCCESS.status, "edit success", student);
     }
 
     @Override
@@ -43,14 +43,14 @@ public class StudentServiceImpl implements StudentService {
 
         Sort.Direction directions = StringUtils.isBlank(searchVo.getSort()) ||
                 searchVo.getSort().equalsIgnoreCase("asc") ?
-                    Sort.Direction.ASC : Sort.Direction.DESC;
+                Sort.Direction.ASC : Sort.Direction.DESC;
         String properties = StringUtils.isBlank(searchVo.getOrderBy()) ? "studentId" : searchVo.getOrderBy();
 //        new的sort 不知为何会报错，先暂时令其保持完整
 //        Sort sort = new Sort (directions, properties);
 //        Sort sort = new Sort(Sort.Direction.ASC,"studentId");
-        Pageable pageable = PageRequest.of(searchVo.getCurrentPage(), searchVo.getPageSize() );
+        Pageable pageable = PageRequest.of(searchVo.getCurrentPage(), searchVo.getPageSize());
 
-        studentRepository.findAll(example,pageable);
+        studentRepository.findAll(example, pageable);
         return null;
     }
 }

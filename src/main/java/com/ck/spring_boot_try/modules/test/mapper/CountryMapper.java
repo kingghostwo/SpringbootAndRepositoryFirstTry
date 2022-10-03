@@ -7,15 +7,14 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 /**
- *  @Entity com.ck.spring_boot_try.modules.test.entity.Country
+ * @Entity com.ck.spring_boot_try.modules.test.entity.Country
  */
 @Mapper
 public interface CountryMapper extends BaseMapper<Country> {
 
 
-
     @Select("select * from m_country where country_id = #{countryId}")
-    @Results(id = "countryResults", value= {
+    @Results(id = "countryResults", value = {
             @Result(column = "country_id", property = "countryId", id = true),
             @Result(column = "country_id", property = "cities",
                     javaType = List.class,

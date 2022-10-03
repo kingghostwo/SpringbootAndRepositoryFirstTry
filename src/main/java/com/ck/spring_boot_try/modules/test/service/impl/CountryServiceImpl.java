@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Service
 public class CountryServiceImpl extends ServiceImpl<CountryMapper, Country>
-    implements CountryService {
+        implements CountryService {
 
     @Autowired
     private CountryMapper countryMapper;

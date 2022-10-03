@@ -18,10 +18,11 @@ public class Result<T> {
     }
 
 
-    public enum ResultStatus{
-        SUCCESS(200),FAILED(500);
+    public enum ResultStatus {
+        SUCCESS(200), FAILED(500);
         public int status;
-        private ResultStatus(int status){
+
+        private ResultStatus(int status) {
             this.status = status;
         }
     }

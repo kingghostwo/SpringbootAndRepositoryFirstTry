@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public interface CityService extends IService<City> {
 
-    List<City> getCitiesByCountryId (int countryId);
+    List<City> getCitiesByCountryId(int countryId);
 
     PageInfo<City> getCitiesByPage(int currentPage, int pageSize, int countryId);
 

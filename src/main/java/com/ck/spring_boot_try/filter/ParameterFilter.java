@@ -15,42 +15,42 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebFilter(filterName="parameterFilter", urlPatterns="/**")
+@WebFilter(filterName = "parameterFilter", urlPatterns = "/**")
 public class ParameterFilter implements Filter {
 
-	private final static Logger LOGGER = LoggerFactory.getLogger(ParameterFilter.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(ParameterFilter.class);
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
-		LOGGER.debug("----------------parameterFilter-----------");
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        LOGGER.debug("----------------parameterFilter-----------");
 
-		HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
 
-		HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(httpRequest) {
+        HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(httpRequest) {
 
-			@Override
-			public String getParameter(String name) {
-				String value = httpRequest.getParameter(name);
-				if (StringUtils.isNotBlank(value)) {
-					return value.replaceAll("fuck", "***");
-				}
-				return super.getParameter(name);
-			}
+            @Override
+            public String getParameter(String name) {
+                String value = httpRequest.getParameter(name);
+                if (StringUtils.isNotBlank(value)) {
+                    return value.replaceAll("fuck", "***");
+                }
+                return super.getParameter(name);
+            }
 
-			@Override
-			public String[] getParameterValues(String name) {
-				String[] values = httpRequest.getParameterValues(name);
-				if (values != null && values.length > 0) {
-					values[0] = values[0].replace("fuck", "*****");
-					return values;
-				}
-				return super.getParameterValues(name);
-			}
+            @Override
+            public String[] getParameterValues(String name) {
+                String[] values = httpRequest.getParameterValues(name);
+                if (values != null && values.length > 0) {
+                    values[0] = values[0].replace("fuck", "*****");
+                    return values;
+                }
+                return super.getParameterValues(name);
+            }
 
-		};
+        };
 
-		chain.doFilter(wrapper, response);
-	}
+        chain.doFilter(wrapper, response);
+    }
 
 }

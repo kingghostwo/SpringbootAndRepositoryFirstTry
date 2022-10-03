@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
- *
  * @TableName m_country
  */
 @Data
@@ -109,13 +108,13 @@ public class Country implements Serializable {
     /**
      *
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dateModified;
 
     /**
      *
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dateCreated;
 
     private static final long serialVersionUID = 1L;
@@ -133,25 +132,25 @@ public class Country implements Serializable {
         }
         Country other = (Country) that;
         return (this.getCountryId() == null ? other.getCountryId() == null : this.getCountryId().equals(other.getCountryId()))
-            && (this.getCountryName() == null ? other.getCountryName() == null : this.getCountryName().equals(other.getCountryName()))
-            && (this.getLocalCountryName() == null ? other.getLocalCountryName() == null : this.getLocalCountryName().equals(other.getLocalCountryName()))
-            && (this.getCountryCode() == null ? other.getCountryCode() == null : this.getCountryCode().equals(other.getCountryCode()))
-            && (this.getCountryCode2() == null ? other.getCountryCode2() == null : this.getCountryCode2().equals(other.getCountryCode2()))
-            && (this.getContinent() == null ? other.getContinent() == null : this.getContinent().equals(other.getContinent()))
-            && (this.getRegion() == null ? other.getRegion() == null : this.getRegion().equals(other.getRegion()))
-            && (this.getSurfaceArea() == null ? other.getSurfaceArea() == null : this.getSurfaceArea().equals(other.getSurfaceArea()))
-            && (this.getIndepYear() == null ? other.getIndepYear() == null : this.getIndepYear().equals(other.getIndepYear()))
-            && (this.getPopulation() == null ? other.getPopulation() == null : this.getPopulation().equals(other.getPopulation()))
-            && (this.getLifeExpectancy() == null ? other.getLifeExpectancy() == null : this.getLifeExpectancy().equals(other.getLifeExpectancy()))
-            && (this.getGnp() == null ? other.getGnp() == null : this.getGnp().equals(other.getGnp()))
-            && (this.getGovernmentForm() == null ? other.getGovernmentForm() == null : this.getGovernmentForm().equals(other.getGovernmentForm()))
-            && (this.getHeadOfState() == null ? other.getHeadOfState() == null : this.getHeadOfState().equals(other.getHeadOfState()))
-            && (this.getCapital() == null ? other.getCapital() == null : this.getCapital().equals(other.getCapital()))
-            && (this.getTimeZone() == null ? other.getTimeZone() == null : this.getTimeZone().equals(other.getTimeZone()))
-            && (this.getLanguageId() == null ? other.getLanguageId() == null : this.getLanguageId().equals(other.getLanguageId()))
-            && (this.getCurrencyId() == null ? other.getCurrencyId() == null : this.getCurrencyId().equals(other.getCurrencyId()))
-            && (this.getDateModified() == null ? other.getDateModified() == null : this.getDateModified().equals(other.getDateModified()))
-            && (this.getDateCreated() == null ? other.getDateCreated() == null : this.getDateCreated().equals(other.getDateCreated()));
+                && (this.getCountryName() == null ? other.getCountryName() == null : this.getCountryName().equals(other.getCountryName()))
+                && (this.getLocalCountryName() == null ? other.getLocalCountryName() == null : this.getLocalCountryName().equals(other.getLocalCountryName()))
+                && (this.getCountryCode() == null ? other.getCountryCode() == null : this.getCountryCode().equals(other.getCountryCode()))
+                && (this.getCountryCode2() == null ? other.getCountryCode2() == null : this.getCountryCode2().equals(other.getCountryCode2()))
+                && (this.getContinent() == null ? other.getContinent() == null : this.getContinent().equals(other.getContinent()))
+                && (this.getRegion() == null ? other.getRegion() == null : this.getRegion().equals(other.getRegion()))
+                && (this.getSurfaceArea() == null ? other.getSurfaceArea() == null : this.getSurfaceArea().equals(other.getSurfaceArea()))
+                && (this.getIndepYear() == null ? other.getIndepYear() == null : this.getIndepYear().equals(other.getIndepYear()))
+                && (this.getPopulation() == null ? other.getPopulation() == null : this.getPopulation().equals(other.getPopulation()))
+                && (this.getLifeExpectancy() == null ? other.getLifeExpectancy() == null : this.getLifeExpectancy().equals(other.getLifeExpectancy()))
+                && (this.getGnp() == null ? other.getGnp() == null : this.getGnp().equals(other.getGnp()))
+                && (this.getGovernmentForm() == null ? other.getGovernmentForm() == null : this.getGovernmentForm().equals(other.getGovernmentForm()))
+                && (this.getHeadOfState() == null ? other.getHeadOfState() == null : this.getHeadOfState().equals(other.getHeadOfState()))
+                && (this.getCapital() == null ? other.getCapital() == null : this.getCapital().equals(other.getCapital()))
+                && (this.getTimeZone() == null ? other.getTimeZone() == null : this.getTimeZone().equals(other.getTimeZone()))
+                && (this.getLanguageId() == null ? other.getLanguageId() == null : this.getLanguageId().equals(other.getLanguageId()))
+                && (this.getCurrencyId() == null ? other.getCurrencyId() == null : this.getCurrencyId().equals(other.getCurrencyId()))
+                && (this.getDateModified() == null ? other.getDateModified() == null : this.getDateModified().equals(other.getDateModified()))
+                && (this.getDateCreated() == null ? other.getDateCreated() == null : this.getDateCreated().equals(other.getDateCreated()));
     }
 
     @Override

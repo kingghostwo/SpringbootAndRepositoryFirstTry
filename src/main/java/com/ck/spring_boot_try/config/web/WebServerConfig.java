@@ -1,4 +1,4 @@
-package com.ck.spring_boot_try.config;
+package com.ck.spring_boot_try.config.web;
 
 import org.apache.catalina.connector.Connector;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +21,7 @@ public class WebServerConfig {
     private int httpPort;
 
     @Bean
-    public Connector connector(){
+    public Connector connector() {
         Connector connector = new Connector();
         connector.setPort(httpPort);
         connector.setScheme("http");
@@ -29,7 +29,7 @@ public class WebServerConfig {
     }
 
     @Bean
-    public ServletWebServerFactory servletWebServerFactory(){
+    public ServletWebServerFactory servletWebServerFactory() {
         TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
         factory.addAdditionalTomcatConnectors(connector());
         return factory;

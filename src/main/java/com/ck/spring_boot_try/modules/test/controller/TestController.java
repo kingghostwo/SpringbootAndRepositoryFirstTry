@@ -42,24 +42,25 @@ public class TestController {
     private CityService cityService;
     @Autowired
     private CountryService countryService;
+
     /**
      * 127.0.0.1:8080/test/helloWorld ---- get
      */
     @GetMapping(value = "/helloWorld")
     @ResponseBody
-    String helloWorld(){
+    String helloWorld() {
         return "Hello world";
     }
 
     @GetMapping(value = "/config")
     @ResponseBody
-    String config(){
+    String config() {
         return String.format("%s", name, applicationTest.getName());
     }
 
     @GetMapping(value = "/log")
     @ResponseBody
-    public String logback(){
+    public String logback() {
         LOGGER.trace("trace");
         LOGGER.debug("debug");
         LOGGER.info("info");
@@ -69,7 +70,7 @@ public class TestController {
     }
 
     @RequestMapping("/index")
-    public String testIndex(ModelMap modelMap){
+    public String testIndex(ModelMap modelMap) {
         int countryId = 522;
         Country country = countryService.getCountryByCountryId(countryId);
         List<City> cities = cityService.getCitiesByCountryId(countryId);
@@ -92,16 +93,16 @@ public class TestController {
 
     @RequestMapping("/desc")
     @ResponseBody
-    public String testDesc(HttpServletRequest request, @RequestParam String key){
+    public String testDesc(HttpServletRequest request, @RequestParam String key) {
         String key2 = request.getParameter("key");
-        return "this is test desc." + key +"---" + key2;
+        return "this is test desc." + key + "---" + key2;
     }
 
     @PostMapping(value = "/file", consumes = "multipart/form-data")
-    public String uploadFile(@RequestParam MultipartFile file, RedirectAttributes redirectAttributes){
-        if (file.isEmpty()){
+    public String uploadFile(@RequestParam MultipartFile file, RedirectAttributes redirectAttributes) {
+        if (file.isEmpty()) {
 //            addAttribute是明文
-            redirectAttributes.addFlashAttribute("message","Please select file.");
+            redirectAttributes.addFlashAttribute("message", "Please select file.");
 //            跳转到另一个控制器，不是页面
             return "redirect:/test/index";
         }
@@ -109,13 +110,13 @@ public class TestController {
             String fileName = file.getOriginalFilename();
             File destFile = new File(
                     "D:\\project\\Java\\CKHOMEWORK\\SpringbootAndRepositoryFirstTry\\target\\classes\\static\\upload/"
-                            +fileName);
+                            + fileName);
             file.transferTo(destFile);
 
 
-            redirectAttributes.addFlashAttribute("message","Upload file success");
+            redirectAttributes.addFlashAttribute("message", "Upload file success");
         } catch (IOException e) {
-            redirectAttributes.addFlashAttribute("message","Upload file failed");
+            redirectAttributes.addFlashAttribute("message", "Upload file failed");
             e.printStackTrace();
         }
         return "redirect:/test/index";

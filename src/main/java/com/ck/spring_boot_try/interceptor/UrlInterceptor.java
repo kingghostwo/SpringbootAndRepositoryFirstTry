@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class UrlInterceptor implements HandlerInterceptor {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(UrlInterceptor.class) ;
+    private final static Logger LOGGER = LoggerFactory.getLogger(UrlInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

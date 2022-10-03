@@ -30,7 +30,8 @@ public class ControllerAspect {
      */
     @Pointcut("execution(public * com.ck.spring_boot_try.modules.*.controller.*.*(..))")
     @Order(1)
-    public void controllerPointCut(){}
+    public void controllerPointCut() {
+    }
 
     @Before(value = "com.ck.spring_boot_try.aspect.ControllerAspect.controllerPointCut()")
     public void beforeController(JoinPoint joinPoint) {
@@ -48,21 +49,21 @@ public class ControllerAspect {
     }
 
 
-        /**
-         * -环绕通知 = 前置 + 目标方法执行 + 后置通知
-         * ProceedingJoinPoint 继承了 JoinPoint，是在 JoinPoint 的基础上暴露出  proceed 这个方法，
-         * -这个是 aop 代理链执行的方法， 执行proceed方法的作用是让目标方法执行，这也是环绕通知和前置、后置通知方法的一个最大区别;
-         */
-    @Around(value="com.ck.spring_boot_try.aspect.ControllerAspect.controllerPointCut()")
+    /**
+     * -环绕通知 = 前置 + 目标方法执行 + 后置通知
+     * ProceedingJoinPoint 继承了 JoinPoint，是在 JoinPoint 的基础上暴露出  proceed 这个方法，
+     * -这个是 aop 代理链执行的方法， 执行proceed方法的作用是让目标方法执行，这也是环绕通知和前置、后置通知方法的一个最大区别;
+     */
+    @Around(value = "com.ck.spring_boot_try.aspect.ControllerAspect.controllerPointCut()")
     public Object aroundController(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         LOGGER.debug("Around controller");
         return proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
     }
 
-        /**
-         * -后置通知
-         */
-     @After(value="com.ck.spring_boot_try.aspect.ControllerAspect.controllerPointCut()")
+    /**
+     * -后置通知
+     */
+    @After(value = "com.ck.spring_boot_try.aspect.ControllerAspect.controllerPointCut()")
     public void afterController() {
         LOGGER.debug("After Controller.");
         LOGGER.debug("=======================");

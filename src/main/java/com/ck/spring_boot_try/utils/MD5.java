@@ -5,10 +5,11 @@ import org.springframework.util.DigestUtils;
 
 public class MD5 {
     private static String SALT = "&%5123***&&%%$$#@";
-    public static String getMD5(String username,String password) {
-        if (StringUtils.isBlank(password)||StringUtils.isBlank(username)) {
+
+    public static String getMD5(String username, String password) {
+        if (StringUtils.isBlank(password) || StringUtils.isBlank(username)) {
             return null;
-        }else if (StringUtils.isNotBlank(username)){
+        } else if (StringUtils.isNotBlank(username)) {
             SALT = username;
         }
         String base = password + "/" + SALT;

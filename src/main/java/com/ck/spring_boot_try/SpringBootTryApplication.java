@@ -11,7 +11,7 @@ public class SpringBootTryApplication extends SpringBootServletInitializer {
 
     //将启动类作为外置容器的接口
     @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder){
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(Application.class);
     }
 

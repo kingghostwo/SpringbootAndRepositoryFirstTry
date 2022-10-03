@@ -20,7 +20,7 @@ import java.util.Optional;
  */
 @Service
 public class CityServiceImpl extends ServiceImpl<CityMapper, City>
-    implements CityService {
+        implements CityService {
 
     @Autowired
     CityMapper cityMapper;
@@ -51,19 +51,19 @@ public class CityServiceImpl extends ServiceImpl<CityMapper, City>
     @Override
     public Result<City> insertCity(City city) {
         cityMapper.insertCity(city);
-        return new Result<City>(Result.ResultStatus.SUCCESS.status,"insert fine",city);
+        return new Result<City>(Result.ResultStatus.SUCCESS.status, "insert fine", city);
     }
 
     @Override
     public Result<City> updateCityByCityId(City city) {
         cityMapper.updateCityByCityId(city);
-        return new Result<City>(Result.ResultStatus.SUCCESS.status,"update fine",city);
+        return new Result<City>(Result.ResultStatus.SUCCESS.status, "update fine", city);
     }
 
     @Override
     public Result<City> deleteCityById(int city) {
         cityMapper.deleteCityById(city);
-        return new Result<City>(Result.ResultStatus.SUCCESS.status,"delete fine");
+        return new Result<City>(Result.ResultStatus.SUCCESS.status, "delete fine");
     }
 }
 

@@ -1,4 +1,4 @@
-package com.ck.spring_boot_try.config;
+package com.ck.spring_boot_try.config.web;
 
 import com.ck.spring_boot_try.filter.ParameterFilter;
 import com.ck.spring_boot_try.interceptor.UrlInterceptor;
@@ -14,9 +14,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @AutoConfigureAfter({WebMvcAutoConfiguration.class})
 public class WebMvcConfig implements WebMvcConfigurer {
-        /**
-         * 注册“参数过滤器”
-         */
+    /**
+     * 注册“参数过滤器”
+     */
     @Bean
     public FilterRegistrationBean<ParameterFilter> filterRegistrationBean() {
         FilterRegistrationBean<ParameterFilter> filterFilterRegistrationBean = new FilterRegistrationBean<ParameterFilter>();

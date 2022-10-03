@@ -23,17 +23,16 @@ public class CountryController {
      * @return
      */
     @RequestMapping("/country/{countryId}")
-    public Country getCountryByCountryById(@PathVariable int countryId){
+    public Country getCountryByCountryById(@PathVariable int countryId) {
         return countryService.getCountryByCountryId(countryId);
     }
 
     /**
-     * @param countryName
-     *      /api/country?China
+     * @param countryName /api/country?China
      * @return
      */
     @RequestMapping("/country")
-    public Country getCountryByCountryName(@RequestParam String countryName){
+    public Country getCountryByCountryName(@RequestParam String countryName) {
         return countryService.getCountryByCountryName(countryName);
     }
 }

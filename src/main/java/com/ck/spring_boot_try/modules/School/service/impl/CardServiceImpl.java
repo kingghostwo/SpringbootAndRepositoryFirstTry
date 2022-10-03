@@ -18,7 +18,7 @@ public class CardServiceImpl implements CardService {
     @Override
     public Result<Card> editCard(Card card) {
         cardRepository.saveAndFlush(card);
-        return new Result<Card>(Result.ResultStatus.SUCCESS.status,"edit over",card);
+        return new Result<Card>(Result.ResultStatus.SUCCESS.status, "edit over", card);
     }
 
     @Override
@@ -34,6 +34,6 @@ public class CardServiceImpl implements CardService {
     @Override
     public Result<Object> deleteCardByCardId(int cardId) {
         cardRepository.deleteById(cardId);
-        return new Result<Object>(Result.ResultStatus.SUCCESS.status,"delete over");
+        return new Result<Object>(Result.ResultStatus.SUCCESS.status, "delete over");
     }
 }

@@ -6,10 +6,7 @@ import com.ck.spring_boot_try.modules.common.vo.Result;
 import com.ck.spring_boot_try.modules.common.vo.SearchVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -19,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(value = "/register", consumes = "application/json")
-    public Result<User> register(@RequestBody User user){
+    public Result<User> register(@RequestBody User user) {
         return userService.insertUser(user);
     }
 
@@ -28,9 +25,25 @@ public class UserController {
         return userService.login(user);
     }
 
-    @PostMapping(value="/users", consumes="application/json")
+    @PostMapping(value = "/users", consumes = "application/json")
     public PageInfo<User> getUsersBySearchVo(@RequestBody SearchVo searchVo) {
         return userService.getUsersBySearchVo(searchVo);
+    }
+
+    @RequestMapping("/user/{userId}")
+    public User getUserById(@PathVariable int userId) {
+        return userService.getUserById(userId);
+    }
+
+    @PutMapping(value = "/user", consumes = "application/json")
+    public Result<User> updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+    @DeleteMapping("/user/{userId}")
+//@RequiresPermissions(value={"deleteUser"}, logical= Logical.OR)
+    public Result<User> deleteUser(@PathVariable int userId) {
+        return userService.deleteUser(userId);
     }
 
 }

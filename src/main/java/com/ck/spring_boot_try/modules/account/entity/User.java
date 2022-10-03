@@ -1,6 +1,7 @@
 package com.ck.spring_boot_try.modules.account.entity;
 
 import lombok.Data;
+import org.apache.ibatis.annotations.Options;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,7 +13,7 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "true")
     private int userId;
     @Column(name = "user_name")
     private String userName;

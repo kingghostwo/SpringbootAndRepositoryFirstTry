@@ -16,19 +16,19 @@ public class CardController {
     private CardService cardService;
 
     @PostMapping(value = "/edit", consumes = "application/Json")
-    public Result<Card> editCard(@RequestBody Card card){
+    public Result<Card> editCard(@RequestBody Card card) {
         return cardService.editCard(card);
     }
 
-    public Card getCardByCardId(int cardId){
+    public Card getCardByCardId(int cardId) {
         return cardService.getCardByCardId(cardId);
     }
 
-    public List<Card> getCards(){
+    public List<Card> getCards() {
         return cardService.getCards();
     }
 
-    public Result<Object> deleteCardByCardId(int cardId){
+    public Result<Object> deleteCardByCardId(int cardId) {
         return cardService.deleteCardByCardId(cardId);
     }
 }
